@@ -100,7 +100,6 @@ cordova.define("cordova/plugin/datepicker", function(require, exports, module) {
    	 * @param val
 	 */
 	DatePicker.prototype.onChange = function (val) {
-		console.log("onChange: " + val);
 		if (this.options.onChange) {
 			this.options.onChange(parseDate(val));
 		}
