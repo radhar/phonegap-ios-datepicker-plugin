@@ -19,10 +19,10 @@ Usage:
 			allowOldValues:    true,
 			allowFutureValues: true,
 			onChange: function (date) {
-			
+				// on value change
 			},
 			onDismiss: function (date) {
-			
+				// on datepicker dismiss
 			}
 		};
 		datePicker.show(options);  
