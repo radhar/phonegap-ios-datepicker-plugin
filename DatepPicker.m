@@ -2,9 +2,10 @@
 //  By Cristobal Dabed
 //  Adapted from https://github.com/phonegap/phonegap-plugins/tree/master/iOS/DatePicker
 //
-//	Phonegap DatePicker Plugin
-//	Copyright (c) Greg Allen 2011
-//	MIT Licensed
+//
+//  Phonegap DatePicker Plugin
+//  Copyright (c) Greg Allen 2011
+//  MIT Licensed
 //
 //  Additional refactoring by Sam de Freyssinet
 // TODO: Add prev/next buttons
