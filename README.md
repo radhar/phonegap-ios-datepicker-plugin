@@ -37,4 +37,4 @@ The options are:
 5. onDismiss: required callback for when the datepicker has been dismissed, the selected date value will be provided back as an native js date value.
 6. onChange: optional callback for when the datepicker changes its value, the selected date value will be provided back as an native js date value.
 
-All options besides the required onDismiss callback are optional.
+All options besides the required `onDismiss` callback are optional.
