@@ -1,5 +1,5 @@
 //  DatePicker.h
-//  By Cristobal Dabed 2013
+//  By Cristobal Dabed
 //  Adapted from https://github.com/phonegap/phonegap-plugins/tree/master/iOS/DatePicker
 //
 //
