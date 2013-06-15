@@ -19,7 +19,7 @@ Usage:
 			allowOldValues:    true,
 			allowFutureValues: true,
 			onChange: function (date) {
-				// on value change
+				// on datepicker value change
 			},
 			onDismiss: function (date) {
 				// on datepicker dismiss
