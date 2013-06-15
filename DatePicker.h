@@ -1,12 +1,11 @@
-//	DatePicker.h
-//	Copyright (c) Cristobal Dabed 2013
-//	MIT Licensed
-//
+//  DatePicker.h
+//  By Cristobal Dabed 2013
 //  Adapted from https://github.com/phonegap/phonegap-plugins/tree/master/iOS/DatePicker
-
-//	Phonegap DatePicker Plugin
-//	Copyright (c) Greg Allen 2011
-//	MIT Licensed
+//
+//
+//  Phonegap DatePicker Plugin
+//  Copyright (c) Greg Allen 2011
+//  MIT Licensed
 //
 
 #import <Foundation/Foundation.h>
