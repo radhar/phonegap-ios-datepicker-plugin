@@ -178,7 +178,7 @@
 - (void)onDateValueChanged:(id)sender
 {
 	if (delegateEventValueChanged) {
-		NSLog(@"delegated…");
+		// NSLog(@"delegated…");
 		[self delegateDateValueToPlugin:YES];
 	}
 }
