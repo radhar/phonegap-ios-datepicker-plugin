@@ -1,110 +1,146 @@
+/*jshint indent:4, laxbreak:true, smarttabs:true */
 /**
  * Cordova DatePicker plugin.js
  *
  * @author Cristobal Dabed
  */
 cordova.define("cordova/plugin/datepicker", function(require, exports, module) {
-  var exec = require('cordova/exec');
+    var exec = require('cordova/exec');
 
 
-	var pad       = function (val) { return (String(val).length == 1 ? "0" : "") + String(val); };
-	var parseDate = function (val) { return new Date(parseFloat(val) * 1000); };
+    var pad       = function (value) { return (String(value).length == 1 ? "0" : "") + String(value); };
+    var parseDate = function (value) { return new Date(parseFloat(value) * 1000); };
 
-	/**
-	 * Datepicker
-	 */
-	function DatePicker() {
-		var self = this;
+    /**
+     * Datepicker
+     */
+    function DatePicker() {
+        var self = this;
 
-		this.options   = null;
-		this.callbacks =  {
-			onSuccess: function (options) {
-				if (options.changed !== false) {
-					self.onChange(options.date);
-				}
-				else {
-					self.onDismiss(options.date);
-				}
-			},
-			onError: function () {
-				self.onError();
-			}
-		};
-	}
+        this.options   = null;
+        this.callbacks =  {
+            onSuccess: function (options) {
+                switch (options.state) {
+                    case 'change': {
+                        self.onChange(options.value);
+                    break;
+                    }
+                    case 'dismiss': {
+                        self.onDismiss(options.value);
+                    break;
+                    }
+                    case 'prev': {
+                        self.onPrev();
+                    break;
+                    }
+                    case 'next': {
+                        self.onNext();
+                    break;
+                    }
+                }
+            },
+            onError: function () {
+                self.onError();
+            }
+        };
+    }
 
-	/**
-	 * Show
-	 *
-	 * @param options
-	 */
-	DatePicker.prototype.show = function (options) {
-		var date = options.date ? options.date : '';
-		if (date) {
-			options.date = [
-				date.getFullYear(), '-', pad(date.getMonth() + 1), '-', pad(date.getDate()), 
-				"T", pad(date.getHours()), ":", pad(date.getMinutes()), ":00Z"
-			].join("");
-		}
+    /**
+     * Show
+     *
+     * @param options
+     */
+    DatePicker.prototype.show = function (options) {
+        var date = options.date ? options.date : '';
+        if (date) {
+            options.date = [
+                date.getFullYear(), '-', pad(date.getMonth() + 1), '-', pad(date.getDate()),
+                "T", pad(date.getHours()), ":", pad(date.getMinutes()), ":00Z"
+            ].join("");
+        }
 
-		var defaults = {
-			mode: 'datetime',
-			date: '',
-			allowOldDates:    true,
-			allowFutureDates: true
-		};
+        var defaults = {
+            mode: 'datetime',
+            date: '',
+            allowOldDates:    true,
+            allowFutureDates: true,
+            visibility: "auto"
+        };
 
-		for (var key in defaults) {
-			if (key in options) {
-				defaults[key] = options[key];
-			}
-		}
+        for (var key in defaults) {
+            if (key in options) {
+                defaults[key] = options[key];
+            }
+        }
 
-		defaults.onChange = ("onChange" in options);
+        defaults.delegateChange = ("onChange" in options);
+        defaults.delegatePrev   = ("onPrev" in options);
+        defaults.delegateNext   = ("onNext" in options);
 
-		this.options = options;
-		exec(this.callbacks.onSuccess, this.callbacks.onError, "DatePicker", "show", [defaults]);
-	};
+        this.options = options;
+        exec(this.callbacks.onSuccess, this.callbacks.onError, "DatePicker", "show", [defaults]);
+    };
 
-	/**
-	 * Hide
-	 */
-	DatePicker.prototype.hide = function () {
-		exec(null, null, "DatePicker", "hide", []);
-	};
+    /**
+     * Hide
+     */
+    DatePicker.prototype.hide = function () {
+        exec(null, null, "DatePicker", "hide", []);
+    };
 
-	/**
-	 * Dismiss
-	 *
-	 * @param val
-	 */
-	DatePicker.prototype.onDismiss = function (val) {
-		if (this.options.onDismiss) {
-			this.options.onDismiss(parseDate(val));
-		}
-	};
+    /**
+     * Dismiss
+     *
+     * @param val
+     */
+    DatePicker.prototype.onDismiss = function (value) {
+        if (this.options.onDismiss) {
+            this.options.onDismiss(parseDate(value));
+        }
+    };
 
-	/**
-	 * On error
-	 *
-	 * @param val
-	 */
-	DatePicker.prototype.onError = function (val) {
-		if (this.options.onError) {
-			this.options.onError(val);
-		}
-	};
+    /**
+     * On change
+     *
+     * @param val
+     */
+    DatePicker.prototype.onChange = function (value) {
+        if (this.options.onChange) {
+            this.options.onChange(parseDate(value));
+        }
+    };
 
-	/**
-   	 * On change
-   	 *
-   	 * @param val
-	 */
-	DatePicker.prototype.onChange = function (val) {
-		if (this.options.onChange) {
-			this.options.onChange(parseDate(val));
-		}
-	};
+    /**
+     * On prev
+     */
+    DatePicker.prototype.onPrev = function () {
+        if (this.options.onPrev) {
+            this.options.onPrev();
+        }
+    };
 
-	var datePicker = new DatePicker();
-	module.exports = datePicker;
+    /**
+     * On next
+     */
+    DatePicker.prototype.onNext = function () {
+        if (this.options.onNext) {
+            this.options.onNext();
+        }
+    };
+
+
+    /**
+     * On error
+     *
+     * @param value
+     */
+    DatePicker.prototype.onError = function (value) {
+        if (this.options.onError) {
+            this.options.onError(value);
+        }
+    };
+
+
+    var datePicker = new DatePicker();
+    module.exports = datePicker;
 });
