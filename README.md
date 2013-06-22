@@ -42,9 +42,9 @@ The options are:
 3. `allowOldValues:` Wether to allow older values than the date provided, default true.
 4. `allowFutureValues:` Wether to allow future values than the date provided, default true.
 5. `visibility:` Howto to display prev/next buttons, auto | visible | hidden
-	1. If visibility state set to `auto`, only display _'prev'/ 'next'_ buttons if one of the _' onPrev'/ 'onNext'_ functions set, otherwise display none 
-	2. If visibility state set to `visible` set, both _'prev'/ 'next'_ buttons will be display always, still the enabled state of the buttons will only be display if a correspondent _' onPrev'/ 'onNext'_ state function has been provided.
-	3. If visibility state set to `hidden`, both _'prev'/ 'next'_ buttons will not be visible regardless wether the _' onPrev'/ 'onNext'_ functions have beeen provided or not.
+	1. If visibility state set to `auto`, only display _'prev' / 'next'_ buttons if one of the _' onPrev' / 'onNext'_ functions set, otherwise display none 
+	2. If visibility state set to `visible` set, both _'prev'/  'next'_ buttons will be display always, still the enabled state of the buttons will only be display if a correspondent _' onPrev' / 'onNext'_ state function has been provided.
+	3. If visibility state set to `hidden`, both _'prev' / 'next'_ buttons will not be visible regardless wether the _' onPrev' / 'onNext'_ functions have beeen provided or not.
 	
 6. `onChange:` optional callback for when the datepicker changes its value, the selected date value will be provided back as an native js date value.
 7. `onDismiss:` required callback for when the datepicker has been dismissed, the selected date value will be provided back as an native js date value.
