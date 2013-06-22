@@ -9,6 +9,7 @@ Essential changes are:
 2. DatePicker was added support for value change event callback.
 3. DatePicker was added hide method.
 4. DatePicker was added prev/next buttons and optional callbacks.
+5. DatePicker layouts properly both in portrait and landscape mode. 
 
 
 
@@ -60,7 +61,7 @@ Essential changes are:
 The options are:
 
 1. `date:` The default _date_ to display if none provided it will automatically use _now_.
-2. `mode:` The granularity mode either _date_ or _datetime_, datetime has extended granularity for hours, time and seconds, default _dat'_, if empty the granularity will be _date + time_.
+2. `mode:` The granularity mode either _date_ or _datetime_, datetime has extended granularity for hours, time and seconds. Defaults to _date_, if an empty string the granularity will be _date + time_.
 3. `allowOldValues:` Wether to allow older values than the date provided, default true.
 4. `allowFutureValues:` Wether to allow future values than the date provided, default true.
 5. `visibility:` Howto to display prev/next buttons, auto | visible | hidden
