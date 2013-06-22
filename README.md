@@ -80,7 +80,7 @@ All options besides the required onDismiss callback are optional.
 ### Example Project ###
 
 
-Run the Example project to see a live example and simple example on the usage of the DatePicker plugin.
+Run the Example project to see a live example, plus simple usage of the DatePicker plugin.
 
 
 ### Screenshot ###
