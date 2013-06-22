@@ -37,19 +37,19 @@ Usage:
 
 The options are:
 
-1. `date:` The default _'date'_ to display if none provided it will automatically use _'now'_.
-2. `mode:` The granularity mode either _'date'_ or _'datetime'_, datetime has extended granularity for hours, time and seconds, default _'date'_.
+1. `date:` The default _date_ to display if none provided it will automatically use _now_.
+2. `mode:` The granularity mode either _date_ or _datetime_, datetime has extended granularity for hours, time and seconds, default _dat'_, if empty the granularity will be _date + time_.
 3. `allowOldValues:` Wether to allow older values than the date provided, default true.
 4. `allowFutureValues:` Wether to allow future values than the date provided, default true.
 5. `visibility:` Howto to display prev/next buttons, auto | visible | hidden
 	1. If visibility state set to `auto`, only display _prev / next_ buttons if one of the _`onPrev` / `onNext`_ functions set, otherwise display none 
-	2. If visibility state set to `visible` set, both _prev / next_ buttons will be display always, still the enabled state of the buttons will only be display if a correspondent _' onPrev' / 'onNext'_ state function has been provided.
+	2. If visibility state set to `visible` set, both _prev / next_ buttons will be display always, still the enabled state of the buttons will only be display if a correspondent _`onPrev` / `onNext`_ state function has been provided.
 	3. If visibility state set to `hidden`, both _prev / next_ buttons will not be visible regardless wether the _`onPrev` / `onNext`_ functions have beeen provided or not.
 	
 6. `onChange:` optional callback for when the datepicker changes its value, the selected date value will be provided back as an native js date value.
 7. `onDismiss:` required callback for when the datepicker has been dismissed, the selected date value will be provided back as an native js date value.
-8. `onPrev:` optional callback to enable the ui controled segmented _'prev'_ button, and to be called when it has been clicked.
-9. `onNext:` optional callback to enable the ui controled segmented _'next'_ button, and to be called when it has been clicked
+8. `onPrev:` optional callback to enable the ui controled segmented _prev_ button, and to be called when it has been clicked.
+9. `onNext:` optional callback to enable the ui controled segmented _next_ button, and to be called when it has been clicked
 
 
 All options besides the required onDismiss callback are optional.
