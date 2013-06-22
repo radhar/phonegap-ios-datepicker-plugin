@@ -6,11 +6,33 @@ Custom Fork of the iOS Datepicker From [Phonegap Plugins](https://github.com/pho
 Essential changes are:
 
 1. Javascript part of the datePicker plugin has been defined as an cordova module
-2. DatePicker was added support for value change event callback .
+2. DatePicker was added support for value change event callback.
 3. DatePicker was added hide method.
+4. DatePicker was added prev/next buttons and optional callbacks.
 
 
-Usage:
+
+### Installation ###
+
+1. Add the `src/DatePicker.h` and `src/DatePicker.m` files to your Plugins folder in your project.
+2. Add the `src/DatePicker.js` files to your `www` folder on disk, and add reference to the `DatePicker.js` files as &lt;script&gt; tags in your html file(s)
+3. Add an entry for the plugin in the **config.xml** 
+    
+    Pre 2.8.0
+    
+    	<plugins>
+    		<plugin name="DatePicker" value="DatePicker" />
+    	</plugins>
+	
+	
+	Post 2.8.0 and up
+	
+		<feature name="DatePicker">
+        	<param name="ios-package" value="DatePicker"/>
+    	</feature>
+    
+
+### Usage ###
 
 		var datePicker = cordova.require("cordova/plugin/datepicker");
 		var options =  {
@@ -53,3 +75,14 @@ The options are:
 
 
 All options besides the required onDismiss callback are optional.
+
+
+### Example Project ###
+
+
+Run the Example project to see a live example and simple example on the usage of the DatePicker plugin.
+
+
+### Screenshot ###
+
+![image](Screenshot.png)
