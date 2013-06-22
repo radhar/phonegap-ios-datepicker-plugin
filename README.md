@@ -40,7 +40,7 @@ Essential changes are:
 			mode: 'date',
 			allowOldValues:    true,
 			allowFutureValues: true,
-			visibility: "auto",
+			visibility: 'auto',
 			onChange: function (date) {
 				// on datepicker value change
 			},
